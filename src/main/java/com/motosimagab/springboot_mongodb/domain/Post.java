@@ -1,0 +1,90 @@
+package com.motosimagab.springboot_mongodb.domain;
+
+import java.io.Serializable;
+import java.time.LocalDate;
+import java.util.Objects;
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.mongodb.core.mapping.Document;
+
+@Document
+public class Post implements Serializable{
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	private String id;
+	private LocalDate instant;
+	private String title;
+	private String body;
+	private User author;
+	
+	public Post() {
+		
+	}
+
+	public Post(String id, LocalDate instant, String title, String body, User author) {
+		super();
+		this.id = id;
+		this.instant = instant;
+		this.title = title;
+		this.body = body;
+		this.author = author;
+	}
+
+	public String getId() {
+		return id;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public LocalDate getInstant() {
+		return instant;
+	}
+
+	public void setInstant(LocalDate instant) {
+		this.instant = instant;
+	}
+
+	public String getTitle() {
+		return title;
+	}
+
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public String getBody() {
+		return body;
+	}
+
+	public void setBody(String body) {
+		this.body = body;
+	}
+	
+	public User getAuthor() {
+		return author;
+	}
+	
+	public void setAuthor(User author) {
+		this.author = author;
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(id);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Post other = (Post) obj;
+		return Objects.equals(id, other.id);
+	}
+}
