@@ -18,7 +18,7 @@ public class Post implements Serializable{
 	
 	@Id
 	private String id;
-	private LocalDate instant;
+	private LocalDate date;
 	private String title;
 	private String body;
 	private AuthorDTO author;
@@ -29,10 +29,10 @@ public class Post implements Serializable{
 		
 	}
 
-	public Post(String id, LocalDate instant, String title, String body, AuthorDTO author) {
+	public Post(String id, LocalDate date, String title, String body, AuthorDTO author) {
 		super();
 		this.id = id;
-		this.instant = instant;
+		this.date = date;
 		this.title = title;
 		this.body = body;
 		this.author = author;
@@ -47,11 +47,11 @@ public class Post implements Serializable{
 	}
 
 	public LocalDate getInstant() {
-		return instant;
+		return date;
 	}
 
-	public void setInstant(LocalDate instant) {
-		this.instant = instant;
+	public void setDate(LocalDate date) {
+		this.date = date;
 	}
 
 	public String getTitle() {
